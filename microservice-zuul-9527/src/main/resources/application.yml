@@ -1,0 +1,20 @@
+server:
+  port: 8770
+
+spring:
+  application:
+    name: zuul
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    register-with-eureka: false
+    fetch-registry: false
+  instance:
+    prefer-ip-address: true
+
+zuul:
+  routes:
+    mydept.serviceId: microservice-dept
+    mydept.path: /mydept/**
