@@ -21,3 +21,4 @@ zuul:
   #ignored-services: microservice-dept
   ignored-services: "*"
   prefix: /csl
+

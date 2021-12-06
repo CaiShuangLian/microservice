@@ -20,6 +20,8 @@
         <module>microservice-provider-dept-hystrix</module>
         <module>microservice-consumer-hystrix-dashboard</module>
         <module>microservice-zuul-9527</module>
+        <module>microservice-springcloudconfig</module>
+        <module>microservice-configclient</module>
     </modules>
     <packaging>pom</packaging>
 

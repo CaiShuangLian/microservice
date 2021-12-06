@@ -29,6 +29,8 @@ public class DeptClientServiceFallbackFactory implements FallbackFactory<DeptCli
             public boolean add(Dept dept) {
                 return false;
             }
+
+
         };
     }
 }

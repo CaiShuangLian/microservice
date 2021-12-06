@@ -1,6 +1,7 @@
 server:
   port: 80
 
+
 eureka:
   client:
     register-with-eureka: false
@@ -9,3 +10,11 @@ eureka:
 feign:
   hystrix:
     enabled: true
+
+spring:
+  # thymeleaf模板引擎
+  thymeleaf:
+    cache: false
+    mode: HTML5
+    content-type: text/html
+    encoding: utf-8

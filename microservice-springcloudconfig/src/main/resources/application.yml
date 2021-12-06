@@ -1,0 +1,25 @@
+server:
+  port: 3344
+
+spring:
+  application:
+    name: springcloudconfig
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/CaiShuangLian/springcloudconfig.git
+          username: CaiShuangLian
+          password: cslalocer123
+          default-label: main
+          force-pull: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka/
+
+
+
+
+

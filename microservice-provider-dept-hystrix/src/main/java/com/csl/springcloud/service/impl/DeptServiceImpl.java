@@ -8,7 +8,7 @@ import com.csl.springcloud.service.DeptService;
 
 import java.util.List;
 
-@Service
+//@Service
 public class DeptServiceImpl implements DeptService {
     @Autowired
     private DeptDao dao ;
