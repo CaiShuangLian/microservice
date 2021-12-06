@@ -1,0 +1,12 @@
+# Project exclude paths
+/7003/target/
+/microservice-api/target/
+/microservice-consumer-dept-80/target/
+/microservice-consumer-dept-feign/target/
+/microservice-consumer-hystrix-dashboard/target/
+/microservice-eureka-7001/target/
+/microservice-eureka-7002/target/
+/microservice-provider-dept-8001/target/
+/microservice-provider-dept-8002/target/
+/microservice-provider-dept-8003/target/
+/microservice-provider-dept-hystrix/target/

@@ -23,13 +23,13 @@ public class EmployeeController {
         return row;
     }
 
-    @RequestMapping(value = "employee/update/{employeeId}",method = RequestMethod.POST)
+    @RequestMapping(value = "/employee/update/{employeeId}")
     public Integer updateEmployeeById(@PathVariable("employeeId")Long employeeId){
         Integer row=employeeClientService.updateEmployeeById(employeeId);
         return row;
     }
 
-    @RequestMapping(value = "/employee/delete/{employeeId}",method = RequestMethod.POST)
+    @RequestMapping(value = "/employee/delete/{employeeId}")
     public Integer deleteEmployeeById(@PathVariable("employeeId")Long employeeId){
         Integer row=employeeClientService.deleteEmployById(employeeId);
         return row;

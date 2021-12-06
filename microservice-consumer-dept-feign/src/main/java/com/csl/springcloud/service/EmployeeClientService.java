@@ -9,13 +9,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @FeignClient(value = "MICROSERVICE-DEPT",fallbackFactory = EmployeeClientServiceFallbackFactory.class)
 public interface EmployeeClientService {
-    @RequestMapping(value = "/employee/{firstName}",method = RequestMethod.GET)
+    @RequestMapping(value = "/employee/get/{firstName}",method = RequestMethod.GET)
     public Employee getEmployeeByFirstName(@PathVariable("firstName") String firstName);
 
     @RequestMapping(value = "/employee/add")
     public Integer addEmployee();
 
-    Integer updateEmployeeById(Long employeeId);
+    @RequestMapping(value = "/employee/update/{employeeId}")
+    Integer updateEmployeeById(@PathVariable("employeeId")Long employeeId);
 
-    Integer deleteEmployById(Long employeeId);
+    @RequestMapping(value = "/employee/delete/{employeeId}")
+    Integer deleteEmployById(@PathVariable("employeeId")Long employeeId);
 }
