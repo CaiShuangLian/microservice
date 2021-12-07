@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csl.springcloud.dao.DepartmentDao">
+
+    <!--    添加数据-->
+    <insert id="addDept" useGeneratedKeys="true" keyProperty="departmentId" keyColumn="department_id"
+            parameterType="com.csl.springcloud.entities.Department">
+        insert into hand_departments(department_code, department_name, manager_id, location_id)
+        values (#{departmentCode}, #{departmentName}, #{managerId}, #{locationId})
+    </insert>
+
+    <!--选择更新数据-->
+    <update id="updateDeptById" parameterType="com.csl.springcloud.entities.Department">
+        UPDATE hand_departments
+        <set>
+            <if test="departmentCode != null and departmentCode !=''">department_code=#{departmentCode},</if>
+            <if test="departmentName != null and departmentName !=''">department_name=#{departmentName},</if>
+            <if test="managerId != null">manager_id=#{managerId},</if>
+            <if test="locationId != null">location_id=#{locationId}</if>
+            WHERE department_id = #{departmentId}
+        </set>
+    </update>
+
+
+</mapper>

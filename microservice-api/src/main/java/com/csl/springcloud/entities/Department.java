@@ -13,7 +13,7 @@ public class Department {
     private String departmentCode;
     private String departmentName;
     private Long managerId;
-    private String locationId;
+    private Long locationId;
 
 
     @Override

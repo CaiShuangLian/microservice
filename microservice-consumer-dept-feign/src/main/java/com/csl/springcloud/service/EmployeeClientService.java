@@ -1,5 +1,6 @@
 package com.csl.springcloud.service;
 
+import com.csl.springcloud.Vo.EmployeeVo;
 import com.csl.springcloud.entities.Employee;
 import com.csl.springcloud.service.impl.EmployeeClientServiceFallbackFactory;
 import org.springframework.cloud.netflix.feign.FeignClient;
@@ -7,17 +8,20 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-@FeignClient(value = "MICROSERVICE-DEPT",fallbackFactory = EmployeeClientServiceFallbackFactory.class)
+import java.util.List;
+
+@FeignClient(value = "MICROSERVICE-EMPLOYEE",fallbackFactory = EmployeeClientServiceFallbackFactory.class)
+@RequestMapping("/employee")
 public interface EmployeeClientService {
-    @RequestMapping(value = "/employee/get/{firstName}",method = RequestMethod.GET)
-    public Employee getEmployeeByFirstName(@PathVariable("firstName") String firstName);
+    @RequestMapping(value = "/get/{firstName}",method = RequestMethod.GET)
+    List<EmployeeVo> getEmployeeByFirstName(@PathVariable("firstName") String firstName);
 
-    @RequestMapping(value = "/employee/add")
-    public Integer addEmployee();
+    @RequestMapping(value = "/add",method =RequestMethod.PUT )
+    Integer addEmployee();
 
-    @RequestMapping(value = "/employee/update/{employeeId}")
+    @RequestMapping(value = "/update/{employeeId}",method = RequestMethod.PATCH)
     Integer updateEmployeeById(@PathVariable("employeeId")Long employeeId);
 
-    @RequestMapping(value = "/employee/delete/{employeeId}")
+    @RequestMapping(value = "/delete/{employeeId}",method = RequestMethod.DELETE)
     Integer deleteEmployById(@PathVariable("employeeId")Long employeeId);
 }

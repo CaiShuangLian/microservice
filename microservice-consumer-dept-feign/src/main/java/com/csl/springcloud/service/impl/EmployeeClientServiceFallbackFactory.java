@@ -1,9 +1,12 @@
 package com.csl.springcloud.service.impl;
 
+import com.csl.springcloud.Vo.EmployeeVo;
 import com.csl.springcloud.entities.Employee;
 import com.csl.springcloud.service.EmployeeClientService;
 import feign.hystrix.FallbackFactory;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 @Component
 public class EmployeeClientServiceFallbackFactory implements FallbackFactory<EmployeeClientService> {
@@ -12,13 +15,14 @@ public class EmployeeClientServiceFallbackFactory implements FallbackFactory<Emp
         return new EmployeeClientService(){
 
             @Override
-            public Employee getEmployeeByFirstName(String firstName) {
-                return new Employee().setFirstName(firstName).setEmployeeNum("无信息");
+            public List<EmployeeVo> getEmployeeByFirstName(String firstName) {
+                return null;
             }
 
             //-1表示操作失败
             @Override
             public Integer addEmployee() {
+
                 return -1;
             }
 

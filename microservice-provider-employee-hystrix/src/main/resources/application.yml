@@ -1,9 +1,9 @@
 server:
-  port: 8004
+  port: 8005
 
 mybatis:
   #config-location: classpath:mybatis/mybatis.cfg.xml        # mybatis配置文件所在路径
-  type-aliases-package: com.csl.springcloud.entities.Department   # 所有Entity别名类所在包
+  type-aliases-package: com.csl.springcloud.entities.Employee   # 所有Entity别名类所在包
   mapper-locations:
     - classpath:mybatis/mapper/**/*.xml                       # mapper映射文件
   configuration:
@@ -11,7 +11,7 @@ mybatis:
 
 spring:
   application:
-    name: microservice-dept
+    name: microservice-employee
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource            # 当前数据源操作类型
     driver-class-name: com.mysql.jdbc.Driver             # mysql驱动包
@@ -36,7 +36,7 @@ eureka:
     service-url:
       defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
   instance:
-    instance-id: microservice-provider-dept-hystrix   #自定义服务名称信息
+    instance-id: microservice-provider-employee-hystrix   #自定义服务名称信息
 
 # 日志
 logging:

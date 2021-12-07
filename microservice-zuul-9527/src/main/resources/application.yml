@@ -5,20 +5,28 @@ spring:
   application:
     name: zuul
 
+
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:7001/eureka/
+      defaultZone: http://localhost:7001/eureka/,http://localhost:7002/eureka/,http://localhost:7003/eureka/
 #    register-with-eureka: false
 #    fetch-registry: false
   instance:
     prefer-ip-address: true
 
 zuul:
+  #配置转发规则
   routes:
-    mydept.serviceId: microservice-dept
-    mydept.path: /mydept/**
+    # 所有部门请求转发到部门服务器
+    dept:
+      path: /consumer/department/**
+      service-id: microservice-dept
+    # 所有员工请求转发到员工服务器
+    employee:
+      path: /consumer/employee/**
+      service-id: microservice-employee
   #ignored-services: microservice-dept
-  ignored-services: "*"
-  prefix: /csl
+#  ignored-services: "*"
+#  prefix: /csl
 

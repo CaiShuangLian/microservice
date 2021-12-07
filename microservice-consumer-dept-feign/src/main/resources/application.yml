@@ -18,3 +18,5 @@ spring:
     mode: HTML5
     content-type: text/html
     encoding: utf-8
+
+

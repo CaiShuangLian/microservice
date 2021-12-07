@@ -2,16 +2,16 @@ package com.csl.springcloud;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
-import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 
 @SpringBootApplication
-@EnableZuulProxy//开启zuul代理转发功能，使其成为一个zuul路由服务
-@EnableEurekaClient//注册服务
-@EnableDiscoveryClient
-public class Zuul_9527_StartSpringCloudApp {
+@EnableEurekaClient//本服务启动后会自动注册进eureka服务中
+@EnableDiscoveryClient//服务发现
+@EnableCircuitBreaker
+public class EmployeeProviderHystrix_App {
     public static void main(String[] args) {
-        SpringApplication.run(Zuul_9527_StartSpringCloudApp.class,args);
+        SpringApplication.run(EmployeeProviderHystrix_App.class,args);
     }
 }

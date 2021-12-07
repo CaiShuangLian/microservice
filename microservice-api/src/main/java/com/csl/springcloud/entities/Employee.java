@@ -4,7 +4,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
-import java.sql.Date;
+import java.util.Date;
 
 
 @SuppressWarnings("serial")
@@ -23,12 +23,13 @@ public class Employee {
     private Long departmentId;
     private String statusCode;
 
-    private Department department;
-    private Job job;
-    private Location location;
+//    private Department department;
+//    private Job job;
+//    private Location location;
+//
+////    detail_address
+//    private String detailAddress;
 
-//    detail_address
-    private String detailAddress;
 
     @Override
     public String toString() {
@@ -43,10 +44,6 @@ public class Employee {
                 ", hireDate=" + hireDate +
                 ", departmentId=" + departmentId +
                 ", statusCode='" + statusCode + '\'' +
-                ", department=" + department +
-                ", job=" + job +
-                ", location=" + location +
-                ", detailAddress='" + detailAddress + '\'' +
                 '}';
     }
 }
